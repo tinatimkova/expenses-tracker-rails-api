@@ -8,6 +8,7 @@ class TransactionsController < OpenReadController
     render json: @transactions
   end
 
+
   # GET /transactions/1
   def show
     render json: @transaction
@@ -38,13 +39,14 @@ class TransactionsController < OpenReadController
     @transaction.destroy
   end
 
-  def show_category_transactions
-    @transactions = Transaction.all
+  def show_by_category
+    @transactions = Transaction.where(category_id: params[:category_id])
 
-    render json: @transactions
+      render json: @transactions
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_transaction
       @transaction = Transaction.find(params[:id])
