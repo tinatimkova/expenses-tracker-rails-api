@@ -40,7 +40,8 @@ class TransactionsController < OpenReadController
   end
 
   def show_by_category
-    @transactions = Transaction.where(category_id: params[:category_id])
+    @transactions_by_category = Transaction.where(category_id: params[:category_id])
+    @transactions = @transactions_by_category.order(date: :desc)
 
       render json: @transactions
   end
