@@ -1,4 +1,4 @@
-class TransactionsController < OpenReadController
+class TransactionsController < ProtectedController
   before_action :set_transaction, only: [:show, :update, :destroy]
 
   # GET /transactions
