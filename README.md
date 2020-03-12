@@ -15,7 +15,7 @@
 5. Heroku (PaaS)
 
 ## Entity relationship diagram
-![Entity Relationship Diagram](/ERD/ERD.png)
+![Entity Relationship Diagram](/ERD/_ERD.png)
 
 ## Catalog of routes
 ![ExpTracker API](/ERD/Catalog_of_routes.png)
