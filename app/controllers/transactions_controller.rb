@@ -3,7 +3,7 @@ class TransactionsController < ProtectedController
 
   # GET /transactions
   def index
-    @transactions = current_user.Transaction.all
+    @transactions = Transaction.all
 
     render json: @transactions
   end
@@ -57,7 +57,7 @@ class TransactionsController < ProtectedController
 
     # Use callbacks to share common setup or constraints between actions.
     def set_transaction
-      @transaction = current_user.Transaction.find(params[:id])
+      @transaction = Transaction.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
