@@ -4,7 +4,7 @@
 
 ## Important links
 * `ExpTracker` client repo: https://github.com/tinatimkova/expenses-tracker-client
-* `ExpTracker`client deployed:
+* `ExpTracker`client deployed: https://tinatimkova.github.io/expenses-tracker-client/
 * `ExpTracker` API deployed: https://quiet-reaches-54498.herokuapp.com/
 
 ## List of technologies used
