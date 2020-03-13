@@ -3,7 +3,7 @@ class TransactionsController < ProtectedController
 
   # GET /transactions
   def index
-    @transactions = Transaction.all
+    @transactions = current_user.Transaction.all
 
     render json: @transactions
   end
@@ -16,7 +16,7 @@ class TransactionsController < ProtectedController
 
   # POST /transactions
   def create
-    @transaction = Transaction.new(transaction_params)
+    @transaction = current_user.Transaction.new(transaction_params)
 
     if @transaction.save
       render json: @transaction, status: :created, location: @transaction
@@ -40,14 +40,14 @@ class TransactionsController < ProtectedController
   end
 
   def show_by_category
-    @transactions_by_category = Transaction.where(category_id: params[:category_id])
+    @transactions_by_category = current_user.Transaction.where(category_id: params[:category_id])
     @transactions = @transactions_by_category.order(date: :desc)
 
     render json: @transactions
   end
 
   def show_by_month
-    @transactions_by_category = Transaction.where(category_id: params[:category_id])
+    @transactions_by_category = current_user.Transaction.where(category_id: params[:category_id])
     @transactions = @transactions_by_category.where(date: Date.today.all_month)
 
     render json: @transactions
@@ -57,7 +57,7 @@ class TransactionsController < ProtectedController
 
     # Use callbacks to share common setup or constraints between actions.
     def set_transaction
-      @transaction = Transaction.find(params[:id])
+      @transaction = current_user.Transaction.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
