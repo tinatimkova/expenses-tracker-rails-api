@@ -3,7 +3,7 @@ class TransactionsController < ProtectedController
 
   # GET /transactions
   def index
-    @transactions = Transaction.all
+    @transactions = current_user.transactions.all
 
     render json: @transactions
   end
